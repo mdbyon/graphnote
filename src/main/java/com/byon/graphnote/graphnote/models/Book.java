@@ -1,12 +1,12 @@
 package com.byon.graphnote.graphnote.models;
 
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Builder
-@Component
 public class Book {
 
     private String title;
@@ -15,7 +15,10 @@ public class Book {
 
     private Category category;
 
-    private String theme;
+    private List<String> themes;
+
+    private List<NoteEntry> noteEntryList;
+
 
 
 }
