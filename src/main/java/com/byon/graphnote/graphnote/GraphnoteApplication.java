@@ -22,7 +22,9 @@ public class GraphnoteApplication implements CommandLineRunner {
 	public void run(String... args) throws Exception {
 
 		Book sample = Book.builder().title("Sample Book").author("mike").build();
+		Book connor = Book.builder().title("Connor").author("mike").build();
 		bookRepository.save(sample);
+		bookRepository.save(connor);
 
 	}
 }

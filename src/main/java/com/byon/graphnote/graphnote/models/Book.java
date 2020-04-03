@@ -5,10 +5,13 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.stereotype.Component;
 
+import javax.persistence.Entity;
 import java.util.ArrayList;
 import java.util.List;
 
 @Builder
+@Entity
+@Getter
 @Document(collection = "books")
 public class Book {
 
