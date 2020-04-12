@@ -16,6 +16,7 @@ public class BookController {
     @Autowired
     BookRepository bookRepository;
 
+    @CrossOrigin(origins = "http://localhost:3000")
     @GetMapping(value = "/books", produces = MediaType.APPLICATION_JSON_VALUE)
     public @ResponseBody
     ResponseEntity<List<Book>> showAllBooks() {

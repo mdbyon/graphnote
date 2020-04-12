@@ -1,14 +1,28 @@
 import React, { Component } from "react";
 import * as d3 from "d3";
+import fetch from "node-fetch";
 
 class Canvas extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      books:[],
+    }
   }
 
   componentDidMount() {
+    this.fetchBooks();
     const data = [2, 4, 2, 6, 8];
     this.drawBarChart(data);
+  }
+
+   fetchBooks(){
+     fetch("http://localhost:8080/books", {'headers': 'Access-Control-Allow-Origin: http://localhost'})
+     .then(response => response.json())
+     .then((response) =>{
+      console.log(response)
+      this.setState({books: response})
+    })
   }
 
   drawBarChart(data) {
