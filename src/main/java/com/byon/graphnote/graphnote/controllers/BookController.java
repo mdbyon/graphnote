@@ -17,17 +17,16 @@ public class BookController {
     BookRepository bookRepository;
 
     @GetMapping(value = "/books", produces = MediaType.APPLICATION_JSON_VALUE)
-    public @ResponseBody ResponseEntity<List<Book>> showAllBooks(){
+    public @ResponseBody
+    ResponseEntity<List<Book>> showAllBooks() {
         List<Book> currBooks = bookRepository.findAll();
         return new ResponseEntity<>(currBooks, HttpStatus.ACCEPTED);
     }
 
     @GetMapping(value = "/books/{title}", produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
-    public Book findBook(@PathVariable String title){
+    public Book findBook(@PathVariable String title) {
         return bookRepository.findByTitle(title);
     }
-
-
 
 }
